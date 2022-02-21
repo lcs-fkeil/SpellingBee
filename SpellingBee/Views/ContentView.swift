@@ -12,6 +12,7 @@ struct ContentView: View {
     
     // MARK: Stored properties
     @State var currentItem = itemsToSpell.randomElement()!
+    @State var inputGiven = ""
     
     // MARK: Computed properties
     var body: some View {
@@ -41,13 +42,23 @@ struct ContentView: View {
                     
                 }
             
+            Divider()
+            
+            TextField("",
+                      text: $inputGiven)
+                .multilineTextAlignment(.trailing)
+            
+            
         }
+        .navigationTitle("Spelling Bee")
         
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
         ContentView()
+        }
     }
 }
